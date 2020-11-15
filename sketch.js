@@ -14,7 +14,7 @@ function setup() {
 function draw() {
   background(200,20,50);
   for (let i = 0; i < systems.length; i++) {
-    systems[i].addParticle();
+    systems[i].addParticle(); 
     systems[i].run();
   
     
@@ -55,10 +55,11 @@ class Particle {
 
   // Method to display
   display() {
-    stroke(100, this.lifespan);
-    strokeWeight(0.3);
+    stroke(120, this.lifespan);
+    strokeWeight(0.5);
     fill(300,200,50, this.lifespan);
     ellipse(this.position.x, this.position.y, 23, 23);
+    ellipse(this.position.x-30, this.position.y-30, 30, 30);
     push(); 
     translate(this.position.x, this.position.y);
     var theta = map(this.position.x, 0, width, 0, TWO_PI * 1.4);
@@ -87,7 +88,7 @@ class ParticleSystem {
       this.particles.push(new Particle(this.origin));
     }
   }
-
+ 
   addParticle() {
     this.particles.push(new Particle(this.origin));
   }
